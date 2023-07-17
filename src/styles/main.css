@@ -1,0 +1,678 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overscroll-behavior: none;
+}
+
+body {
+  overflow: hidden;
+  line-height: 1;
+  cursor: url('../../public/images/ui/cursor/cursor.png'), auto;
+  font-family: Arial, sans-serif;
+  font-size: 12pt;
+  -webkit-user-select: none; /* Chrome, Safari, Opera */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+html {
+  min-height: -webkit-fill-available;
+  overflow: hidden;
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+a:hover {
+  cursor: url('../../public/images/ui/cursor/link.png'), pointer;
+}
+
+a:active {
+  cursor: url('../../public/images/ui/cursor/link.png'), move;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+button:hover {
+  cursor: url('../../public/images/ui/cursor/link.png'), pointer;
+}
+
+.left-click {
+  cursor: url('../../public/images/ui/cursor/click.png'), auto;
+}
+
+.app {
+  background-color: #3366CC;
+  position: fixed;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+#character-info {
+  position: absolute;
+  width: 275px;
+  height: 399px;
+  z-index: 10;
+  left: calc(50vw - (510px / 2));
+  top: calc(50vh - (400px / 2) - 70px);
+}
+
+#character-info div {
+  position: absolute;
+}
+
+.information {
+ padding-left: 4px;
+ color: black;
+}
+
+#title-bar {
+  width: 274px;
+  height: 20px;
+}
+
+#character-info-background {
+  position: relative;
+  width: 275px;
+  height: 399px;
+  background-image:url("../../public/images/ui/info.png");
+  background-repeat: no-repeat;
+  z-index: -10;
+  font-size: 10.5pt;
+}
+
+#character-preview {
+  height: 74px;
+  width: 64px;
+  top: 58px;
+  left: 22px;
+  background-image: url("../../public/images/animations/idle.gif");
+  background-repeat: no-repeat;
+}
+
+#pet-preview {
+  height: 48px;
+  width: 49px;
+  top: 248px;
+  left: 28px;
+  background-image: url("../../public/images/animations/fennec15.gif");
+  background-repeat: no-repeat;
+}
+
+#marriage {
+  top: 30px;
+  left: 10px;
+  width: 20px;
+  height: 17px;
+  background-image: url("../../public/images/ui/info/married.png");
+}
+
+#marriage[data-married="false"] {
+  background-image: url("../../public/images/ui/info/unmarried.png");
+}
+
+#marriage[data-married="true"] {
+  background-image: url("../../public/images/ui/info/married.png");
+}
+
+.small-space {
+  letter-spacing: -0.5px;
+  font-size: 10.5pt;
+}
+
+#ign {
+  padding-left: 0px;
+  width: 86px;
+  height: 15px;
+  top: 145px;
+  left: 10px;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 10.5pt;
+}
+
+#pet-ign {
+  padding-left: 0px;
+  width: 86px;
+  height: 15px;
+  top: 306px;
+  left: 10px;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 10.5pt;
+}
+
+#level {
+  width: 113px;
+  height: 16px;
+  top: 77px;
+  left: 154px;
+}
+
+#job {
+  padding-top: 2px;
+  width: 113px;
+  height: 16px;
+  top: 95px;
+  left: 154px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+#fame {
+  width: 113px;
+  height: 16px;
+  top: 113px;
+  left: 154px;
+}
+
+#guild {
+  width: 113px;
+  height: 16px;
+  top: 131px;
+  left: 154px;
+}
+
+#alliance {
+  width: 113px;
+  height: 16px;
+  top: 149px;
+  left: 154px;
+}
+
+.pet-buttons {
+  width: 30px;
+  height: 27px;
+}
+
+#pet-1 {
+  background-image: url("../../public/images/ui/pet1.png");
+  top: 177px;
+  right: 77px;
+}
+
+#pet-2 {
+  background-image: url("../../public/images/ui/pet2.png");
+  top: 177px;
+  right: 43px;
+}
+
+#pet-3 {
+  background-image: url("../../public/images/ui/pet3.png");
+  top: 177px;
+  right: 9px;
+}
+
+#type {
+  width: 80px;
+  height: 16px;
+  top: 329px;
+  left: 55px;
+}
+
+#closeness {
+  width: 80px;
+  height: 16px;
+  top: 329px;
+  left: 187px;
+}
+
+#pet-level {
+  width: 80px;
+  height: 16px;
+  top: 347px;
+  left: 55px;
+}
+
+#fullness {
+  top: 347px;
+  left: 187px;
+}
+
+.pet-details {
+  width: 80px;
+  height: 16px;
+  padding-top: 2px;
+  padding-left: 4px;
+  font-size: 9pt;
+  display: flex;
+  align-items: center;
+  line-height: 0;
+}
+
+#party-button {
+  background-image:url("../../public/images/ui/button/contact/normal.png");
+  position: absolute;
+  right: 66px;
+  top: 23px;
+  width: 59px;
+  height: 17px;
+}
+
+#party-button:hover {
+  background-image:url("../../public/images/ui/button/contact/mouseover.png");
+}
+
+#party-button:active {
+  background-image: url("../../public/images/ui/button/contact/pressed.png");
+}
+
+#item-button {
+  background-image:url("../../public/images/ui/button/item/normal.png");
+  position: absolute;
+  right: 6px;
+  top: 22px;
+  width: 60px;
+  height: 18px;
+}
+
+#item-button:hover {
+  background-image:url("../../public/images/ui/button/item/mouseover.png");
+}
+
+#item-button:active {
+  background-image: url("../../public/images/ui/button/item/pressed.png");
+}
+
+#item-button:disabled {
+  background-image: url("../../public/images/ui/button/item/disabled.png");
+}
+
+#wishlist-button {
+  background-image:url("../../public/images/ui/button/wishlist/normal.png");
+  position: absolute;
+  right: 6px;
+  top: 41px;
+  width: 60px;
+  height: 18px;
+}
+
+#wishlist-button:hover {
+  background-image:url("../../public/images/ui/button/wishlist/mouseover.png");
+}
+
+#wishlist-button:active {
+  background-image: url("../../public/images/ui/button/wishlist/pressed.png");
+}
+
+#wishlist-button:disabled {
+  background-image: url("../../public/images/ui/button/wishlist/disabled.png");
+}
+
+#up-button {
+  background-image:url("../../public/images/ui/button/fame/up-normal.png");
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 114px;
+  left: 237px;
+  z-index: 2;
+}
+
+#down-button {
+  background-image:url("../../public/images/ui/button/fame/down-normal.png");
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 114px;
+  left: 252px;
+  z-index: 2;
+}
+
+#up-button:disabled {
+  background-image:url("../../public/images/ui/button/fame/up-disabled.png");
+}
+
+#down-button:disabled {
+  background-image:url("../../public/images/ui/button/fame/down-disabled.png");
+}
+
+.closed {
+  transform: translateX(-100%);
+}
+
+.open {
+  transform: translateX(0);
+}
+
+#item-links {
+  background-image:url("../../public/images/ui/item-panel.png");
+  /*
+  old width for 6x panel
+  width: 240px;
+  height: 282px;
+  */
+  width: 240px;
+  height: 162px;
+  z-index: -20;
+  position: absolute;
+  right: -235px;
+  top: 0;
+  transition: transform 0.2s ease-in-out;
+}
+
+#item-links a {
+  display: block;
+  position: absolute;
+  width: 198px;
+  height: 35px;
+  left: 15px;
+}
+
+#item-links a {
+  display: block;
+  position: absolute;
+  width: 198px;
+  height: 35px;
+  left: 15px;
+}
+
+#item-link-1 {
+  top: 31px;
+}
+
+#item-link-2 {
+  top: 71px;
+}
+
+#item-link-3 {
+  top: 111px;
+}
+
+#pet-links {
+  background-image: url("../../public/images/ui/pixel-background.png");
+  height: 111px;
+  width: 163px;
+  top: 214px;
+  left: 105px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  flex-direction: column;
+  gap: 3px;
+}
+
+#pet-links a {
+  background-image: url("../../public/images/ui/link-background.png");
+  display: block;
+  width: 145px;
+  height: 35px;
+  z-index: 1;
+}
+
+#pet-links > a:not(:last-child) {
+  margin-bottom: 3px;
+}
+
+.link-text {
+  position: relative !important;
+  padding-left: 4px;
+  left: 38px;
+  top: 3px;
+  font-size: 9pt;
+  color: black;
+}
+
+.link-subtext {
+  position: relative !important;
+  padding-left: 4px;
+  top: 8px;
+  left: 39px;
+  font-size: 10.5pt;
+  color: black;
+}
+
+.link-image {
+  position: relative;
+  width: 35px;
+  height: 35px;
+}
+
+#risorins {
+  background-image: url("../../public/images/ui/icons/risorins.png")
+}
+
+#twitter {
+  background-image: url("../../public/images/ui/icons/twitter.png")
+}
+
+#instagram {
+  background-image: url("../../public/images/ui/icons/instagram.png")
+}
+
+#throne {
+  background-image: url("../../public/images/ui/icons/throne.png")
+}
+
+#ko-fi {
+  background-image: url("../../public/images/ui/icons/ko-fi.png")
+}
+
+#artstation {
+  background-image: url("../../public/images/ui/icons/artstation.png")
+}
+
+.background-0 {
+  background-image: url("../../public/images/setting/0.png");
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: auto 100%;
+  min-height: 579px; /* Set a minimum height for the div */
+  background-position: 0 bottom;
+  width: 100%;
+  animation: scrollBackgroundLg 600s linear infinite;
+  position: absolute;
+  z-index: 0;
+  overflow: hidden;
+}
+
+@keyframes scrollBackgroundLg {
+  0% {
+    background-position: 0 bottom;
+  }
+  100% {
+    background-position: 1000% bottom;
+  }
+}
+
+@keyframes scrollBackgroundMd {
+  0% {
+    background-position: 0 bottom;
+  }
+  100% {
+    background-position: 10000% bottom;
+  }
+}
+
+@keyframes scrollBackgroundSm {
+  0% {
+    background-position: 0 bottom;
+  }
+  100% {
+    background-position: 1000% bottom;
+  }
+}
+
+.background-1 {
+  background-image:url("../../public/images/setting/1.png");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.background-2 {
+  background-image: url("../../public/images/setting/2.png");
+  background-size: 100% 50%;
+  background-position: bottom -150px right 0px;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.platform {
+  background-image: url("../../public/images/setting/platform.png");
+  height: 64px;
+  position: absolute;
+  z-index: 4;
+  bottom: 10px;
+  width: 100%;
+}
+
+#character {
+  background-image: url("../../public/images/animations/idle.gif");
+  height: 74px;
+  width: 64px;
+  position: absolute;
+  z-index: 4;
+  bottom: 60px;
+  left: 0px;
+  transition-timing-function: linear;
+}
+
+#character-ign-container {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  bottom: -17px;
+}
+
+#character-ign {
+  background-color: rgba(0, 0, 0, 0.623);
+  border-radius: 10%;
+  color: rgba(255, 255, 255, 0.795);
+  text-align: center;
+  bottom: 0px;
+  padding: 1.5px 2.3px;
+  font-size: 9.5pt;
+  letter-spacing: 0.1px;
+}
+
+#ios-scrollbar {
+  right: 7px;
+  bottom: 74px;
+  width: 15px;
+  height: 111px;
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+}
+
+#pet-links::-webkit-scrollbar {
+  width: 15px;
+}
+
+#pet-links::-webkit-scrollbar-button:decrement {
+  height: 13px;
+  background-image: url('../../public/images/ui/button/scroll/prev.png');
+}
+
+#pet-links::-webkit-scrollbar-button:increment {
+  height: 13px;
+  background-image: url('../../public/images/ui/button/scroll/next.png');
+}
+
+#pet-links::-webkit-scrollbar-track-piece {
+  background-image: url('../../public/images/ui/button/scroll/base.png');
+}
+
+#pet-links::-webkit-scrollbar-thumb {
+  background-size: 100% 100%;
+  background-image: url('../../public/images/ui/button/scroll/bar2.png');
+}
+
+#pet-links::-webkit-scrollbar-button:decrement:disabled {
+  height: 13px;
+  background-image: url('../../public/images/ui/button/scroll/disabledprev.png');
+}
+
+#pet-links::-webkit-scrollbar-button:increment:disabled {
+  height: 13px;
+  background-image: url('../../public/images/ui/button/scroll/disablednext.png');
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+@media (max-width: 1024px) {
+  .background-0 {
+    animation: scrollBackgroundMd 600s linear infinite;
+  }
+  .background-1 {
+    background-size: auto;
+  }
+
+  .background-2 {
+    background-position: bottom;
+    background-size: auto;
+  }
+
+}
+
+@media (max-width: 520px) {
+  .background-0 {
+    top: auto;
+    bottom: 200px;
+    animation: scrollBackgroundSm 600s linear infinite;
+  }
+
+  #character-info {
+    left: calc(50vw - (275px / 2));
+  }
+
+  #ios-scrollbar {
+    visibility: visible;
+  }
+
+  #ios-scrollbar-next {
+    position: relative !important;
+    width: 15px;
+    height: 13px;
+    background-image: url('../../public/images/ui/button/scroll/next.png');
+  }
+
+  #ios-scrollbar-prev {
+    position: relative !important;
+    width: 15px;
+    height: 13px;
+    background-image: url('../../public/images/ui/button/scroll/prev.png');
+  }
+
+  #ios-scrollbar-base {
+    flex-grow: 1;
+    position: relative !important;
+    background-image: url('../../public/images/ui/button/scroll/base.png');
+  }
+
+  #ios-scrollbar-track {
+    width: 15px;
+    height: 42px;
+    background-image: url('../../public/images/ui/button/scroll/bar2.png');
+  }
+
+}
